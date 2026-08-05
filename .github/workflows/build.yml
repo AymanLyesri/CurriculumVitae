@@ -1,0 +1,53 @@
+name: Build and Publish CVs
+
+on:
+  push:
+    branches: ["main", "master"]
+  workflow_dispatch: # Allows you to run this manually from the Actions tab
+
+jobs:
+  build_pdfs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch GitHub Stars
+        run: |
+          # Query GitHub API for repository stargazers count
+          STARS=$(curl -s https://api.github.com/repos/AymanLyesri/ArchEclipse | jq '.stargazers_count')
+
+          # Fallback to 500 if the API call fails or rate-limits
+          if [ -z "$STARS" ] || [ "$STARS" = "null" ]; then
+            STARS="500"
+          fi
+
+          # Write LaTeX command to stars.tex
+          echo "\renewcommand{\archEclipseStars}{$STARS}" > stars.tex
+
+      - name: Compile English Version
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: CV-AYMAN-LYESRI.tex
+          # Compiles the PDF and names the output file specifically
+          args: -jobname=CV-Ayman-Lyesri-English
+
+      - name: Switch Language Toggle to French
+        # Uses sed to find the line setting the boolean to true and flips it to false
+        run: |
+          sed -i 's/\\setboolean{isEnglish}{true}/\\setboolean{isEnglish}{false}/' CV-AYMAN-LYESRI.tex
+
+      - name: Compile French Version
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: CV-AYMAN-LYESRI.tex
+          args: -jobname=CV-Ayman-Lyesri-French
+
+      - name: Upload PDFs as Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Compiled-CVs
+          path: |
+            CV-Ayman-Lyesri-English.pdf
+            CV-Ayman-Lyesri-French.pdf

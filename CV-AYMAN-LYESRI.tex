@@ -1,0 +1,173 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.2cm]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{ifthen}
+
+% --- LANGUAGE TOGGLE ---
+\newboolean{isEnglish}
+% Set to true for English, false for French
+\setboolean{isEnglish}{true} 
+
+% Formatting sections
+\titleformat{\section}{\large\bfseries\uppercase}{}{0pt}{}[\vspace{2pt}\titlerule\vspace{1ex}]
+\titlespacing{\section}{0pt}{2ex}{1ex}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\Huge \textbf{Ayman Lyesri}} \\[0.5ex]
+    {\Large \ifthenelse{\boolean{isEnglish}}{Software Engineer}{Ingénieur Logiciel}} \\[1ex]
+    \href{https://github.com/AymanLyesri}{GitHub} \textbullet\
+    \href{https://www.linkedin.com/in/aymanlyesri}{LinkedIn} \textbullet\
+    \href{https://aymanlyesri.vercel.app}{Portfolio} \textbullet\
+    \href{mailto:ayman.lyesri.99@gmail.com}{Email} \textbullet\
+    +212 688601162 \textbullet\
+    Rabat 10120, Morocco
+\end{center}
+
+\vspace{3ex}
+
+\noindent
+\begin{minipage}[t]{0.46\textwidth}
+
+% ================= LEFT COLUMN =================
+
+% Profile
+
+\ifthenelse{\boolean{isEnglish}}{\section*{Profile}}{\section*{Profil}}
+\ifthenelse{\boolean{isEnglish}}
+{Recent Software Engineering graduate, motivated and experienced in Agile and Scrum environments. Open-source contributor and freelancer, providing support in team administration, project coordination, design, and development. Fluent in English, Arabic, and French. Academic and professional projects completed: application creation, program optimization, and code validation.}
+{Jeune diplômé en Génie Logiciel, motivé et expérimenté dans des environnements Agile et Scrum. Contributeur open-source et freelance, apportant un soutien à l’administration d’équipe, à la coordination de projets, à la conception et au développement. Parle couramment l’anglais, l’arabe et le français. Projets académiques et professionnels réalisés : création d’applications, optimisation de programmes et validation de code.}
+
+% Skills
+
+\ifthenelse{\boolean{isEnglish}}{\section*{Skills}}{\section*{Compétences}}
+\textbf{\ifthenelse{\boolean{isEnglish}}{Languages}{Langages}:} JavaScript (ES6+), TypeScript, Python, Java, PHP. \\
+\textbf{Frontend \& Mobile:} Angular, React, Next.js, React Native, Tailwind CSS. \\
+\textbf{Backend:} Node.js, Java/Spring, REST APIs, Authentication (JWT, OAuth). \\
+\textbf{\ifthenelse{\boolean{isEnglish}}{Databases}{Bases de données}:} MongoDB, MySQL. \\
+\textbf{DevOps \& Tools:} Git, CI/CD Pipelines, Linux, Bash, Docker, AWS.
+
+% Education
+
+\ifthenelse{\boolean{isEnglish}}{\section*{Education}}{\section*{Éducation}}
+\textbf{\ifthenelse{\boolean{isEnglish}}{Master, Information Technologies}{Master, Technologies de l’Information}} \\
+École supérieure VINCI d'ingénierie informatique, Rabat \\
+2023 -- 2025 \\[1ex]
+\textbf{\ifthenelse{\boolean{isEnglish}}{Bachelor, Information Technologies}{Licence, Technologies de l’Information}} \\
+École supérieure VINCI d'ingénierie informatique, Rabat \\
+2020 -- 2023 \\[1ex]
+\textbf{\ifthenelse{\boolean{isEnglish}}{Scientific Baccalaureate, Experimental Sciences}{Bac Scientifique, sciences expérimentaux}} \\
+Lycée thomas Edison -- Rabat, Morocco \\
+2020
+
+% Languages
+
+\ifthenelse{\boolean{isEnglish}}{\section*{Languages}}{\section*{Langues}}
+\ifthenelse{\boolean{isEnglish}}{English (Upper-Intermediate)}{Anglais (Intermédiaire supérieur)} \\
+\ifthenelse{\boolean{isEnglish}}{Arabic (Fluent)}{Arabe (Courant)} \\
+\ifthenelse{\boolean{isEnglish}}{French (Intermediate)}{Français (Intermédiaire)}
+
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.50\textwidth}
+
+% ================= RIGHT COLUMN =================
+
+% Experience
+
+\ifthenelse{\boolean{isEnglish}}{\section*{Experience}}{\section*{Expérience}}
+\textbf{\ifthenelse{\boolean{isEnglish}}{React Native \& Node.js Developer}{Développeur React Native \& Node.js}} \\
+VNB-IT -- Pontoise -- France $|$ 2025
+\begin{itemize}[leftmargin=*, nosep]
+    \item \ifthenelse{\boolean{isEnglish}}
+    {Mobile app development with React Native and Node.js.}
+    {Développement d’applications mobiles avec React Native et Node.js.}
+    \item \ifthenelse{\boolean{isEnglish}}
+    {Creation of reusable components and Java \& Node.js REST APIs.}
+    {Création de composants réutilisables et d’API REST JAVA \& Node.js.}
+    \item \ifthenelse{\boolean{isEnglish}}
+    {Integration of backend services and databases.}
+    {Intégration de services back-end et bases de données.}
+    \item \ifthenelse{\boolean{isEnglish}}
+    {Ensured smooth UI/UX on iOS and Android.}
+    {Garantie d’une UI/UX fluide sur iOS et Android.}
+\end{itemize}
+\vspace{1ex}
+
+\textbf{\ifthenelse{\boolean{isEnglish}}{Angular Developer}{Développeur Angular}} \\
+E-AMBITION -- Rabat $|$ 2023
+\begin{itemize}[leftmargin=*, nosep]
+    \item \ifthenelse{\boolean{isEnglish}}
+    {Improved performance by 20\% via Angular \& RxJS and Java.}
+    {Amélioration des performances de 20 \% via Angular \& RxJS et Java.}
+    \item \ifthenelse{\boolean{isEnglish}}
+    {Responsive and cross-browser interfaces (Angular, TypeScript, SCSS).}
+    {Interfaces réactives et cross-browser (Angular, TypeScript, SCSS).}
+    \item \ifthenelse{\boolean{isEnglish}}
+    {Development and integration of Java RESTful APIs.}
+    {Développement et intégration d’APIs RESTful JAVA.}
+    \item \ifthenelse{\boolean{isEnglish}}
+    {Early delivery of features in Agile Scrum.}
+    {Livraison anticipée de fonctionnalités en Agile Scrum.}
+    \item \ifthenelse{\boolean{isEnglish}}
+    {Clean, testable code, adherence to Git best practices.}
+    {Code propre et testable, respect des bonnes pratiques Git.}
+    \item \ifthenelse{\boolean{isEnglish}}
+    {Participation in code reviews, tests, and CI/CD pipelines.}
+    {Participation aux revues de code, tests et pipelines CI/CD.}
+\end{itemize}
+\vspace{1ex}
+
+\textbf{\ifthenelse{\boolean{isEnglish}}{Freelance Angular Developer}{Développeur Angular (Freelance)}} \\
+Fiverr \& Other $|$ 2021 -- 2024
+\begin{itemize}[leftmargin=*, nosep]
+    \item \ifthenelse{\boolean{isEnglish}}
+    {Developed dynamic and responsive web applications for international clients.}
+    {Développé des applications web dynamiques et responsives pour des clients internationaux.}
+    \item \ifthenelse{\boolean{isEnglish}}
+    {Worked directly with them to define requirements, propose tailored solutions, and continuously improve products, achieving a 5$\star$ satisfaction rate.}
+    {Travaillé en direct avec eux pour définir les besoins, proposer des solutions sur mesure et améliorer continuellement les produits, atteignant un taux de satisfaction de 5$\star$.}
+\end{itemize}
+
+% Projects
+
+\ifthenelse{\boolean{isEnglish}}{\section*{Projects}}{\section*{Projets}}
+
+% Fallback default value if stars.tex does not exist (e.g. local builds)
+\providecommand{\archEclipseStars}{500}
+% Load dynamic count if generated by CI/CD
+\InputIfFileExists{stars.tex}{}{}
+
+% Usage in your Projects section:
+\textbf{ArchEclipse} (\archEclipseStars+$\star$ GitHub) $|$ \textit{Linux, GTK, TypeScript, Bash}
+\ifthenelse{\boolean{isEnglish}}
+{Flagship open-source project. Developed and maintained a popular desktop widget suite and system customization utilities for Linux environments.}
+{Projet open-source phare. Développement et maintenance d'une suite populaire de widgets de bureau et d'utilitaires de personnalisation pour Linux.}
+
+\vspace{1ex}
+
+% Other Projects
+\textbf{\ifthenelse{\boolean{isEnglish}}{Other Open Source Projects}{Autres Projets Open Source}} (2021 -- 2026)
+\begin{itemize}[leftmargin=*, nosep]
+    \item Next.js \& Pollinations.AI -- Crypto Viewer
+    \item Angular \& Java/Spring Boot -- Manga Reader
+    \item Java/Spring \& Angular \& OpenAI -- User History
+    \item Python \& OpenAI -- Terminal Bot
+\end{itemize}
+
+% Certifications
+
+\ifthenelse{\boolean{isEnglish}}{\section*{Certifications}}{\section*{Certifications}}
+AWS Cloud Practitioner Essentials \\
+B2 - TOEFL English certificate
+
+\end{minipage}
+
+\end{document}
