@@ -57,14 +57,14 @@
 [\vspace{0em}\color{lightgray}\titlerule]
 
 \titlespacing*{\section}
-{0pt}{1.0em}{0.4em}
+{0pt}{0.8em}{0.4em}
 
 \setlength{\parindent}{0pt}
 \setlength{\columnsep}{0.8cm}   % Nice default
 \setlist[itemize]{
     leftmargin=*,
-    itemsep=2pt,
-    topsep=2pt,
+    itemsep=1pt,
+    topsep=1pt,
     parsep=0pt
 }
 
@@ -73,7 +73,7 @@
 % ------------------------------------------------
 % GitHub stars
 % ------------------------------------------------
-\providecommand{\archEclipseStars}{500}
+\providecommand{\archEclipseStars}{664}
 \InputIfFileExists{stars.tex}{}{}
 
 \begin{document}
@@ -88,7 +88,7 @@
 
 \vspace{0.3em}
 
-{\large\color{textgray}Software Engineer}
+{\large\color{textgray}\ifthenelse{\boolean{isEnglish}}{React Native \& Full-Stack Engineer}{Développeur React Native \& Full-Stack}}
 
 \vspace{1em}
 
@@ -107,10 +107,10 @@
 \href{mailto:ayman.lyesri.99@gmail.com}{Email}
 \quad\textbar\quad
 \faPhone\;
-+212 688601162
++212 6 88 60 11 62
 \quad\textbar\quad
 \faMapMarker*\
-Rabat, \ifthenelse{\boolean{isEnglish}}{Morocco}{Maroc}, CYM 10120
+Rabat, \ifthenelse{\boolean{isEnglish}}{Morocco}{Maroc}
 
 \end{center}
 
@@ -127,10 +127,10 @@ Rabat, \ifthenelse{\boolean{isEnglish}}{Morocco}{Maroc}, CYM 10120
 
 \ifthenelse{\boolean{isEnglish}}
 {
-Software Engineer specializing in modern application development using C++, React Native, Angular and Node.js. Experienced building cross-platform mobile applications, REST APIs and open-source software. Passionate about performance, clean architecture and developer experience.
+React Native \& Full-Stack Engineer with 3+ years building cross-platform mobile apps and web platforms for clients in France and Morocco. Creator of ArchEclipse (\archEclipseStars+$\star$ on GitHub). Strong with TypeScript, React Native, Angular, Node.js and REST APIs, delivering in Agile teams.
 }
 {
-Ingénieur Logiciel spécialisé dans le développement d'applications modernes avec C++, React Native, Angular et Node.js. Expérimenté dans la création d'applications mobiles multiplateformes, d'API REST et de logiciels open-source.
+Développeur React Native \& Full-Stack avec plus de 3 ans d'expérience dans la création d'applications mobiles multiplateformes et de plateformes web pour des clients en France et au Maroc. Créateur d'ArchEclipse (\archEclipseStars+$\star$ sur GitHub). Solide maîtrise de TypeScript, React Native, Angular, Node.js et des API REST, en équipe Agile.
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -141,16 +141,13 @@ Ingénieur Logiciel spécialisé dans le développement d'applications modernes 
 \begin{itemize}
 \item 
 \ifthenelse{\boolean{isEnglish}}
-{ArchEclipse (\archEclipseStars+$\star$ GitHub)}{ArchEclipse (\archEclipseStars+$\star$ GitHub)}
+{ArchEclipse creator (\archEclipseStars+$\star$ GitHub, 30+ open-source repos)}{Créateur d'ArchEclipse (\archEclipseStars+$\star$ GitHub, 30+ dépôts open-source)}
 \item 
 \ifthenelse{\boolean{isEnglish}}
-{5$\star$ Freelance Client Rating}{Évaluation de 5$\star$ par les clients Freelance}
+{30\% faster mobile load (VNB-IT), 20\% faster web (E-AMBITION)}{Chargement mobile 30\% plus rapide (VNB-IT), web 20\% plus rapide (E-AMBITION)}
 \item 
 \ifthenelse{\boolean{isEnglish}}
-{Open-source contributor since 2021 }{Contributeur open-source depuis 2021}
-\item 
-\ifthenelse{\boolean{isEnglish}}
-{Agile / Scrum experience}{Expérience Agile / Scrum}
+{5$\star$ freelance rating, repeat clients}{Note freelance de 5$\star$, clients récurrents}
 \end{itemize}
 
 
@@ -161,10 +158,10 @@ Ingénieur Logiciel spécialisé dans le développement d'applications modernes 
 
 % Languages (full width)
 \textbf{\color{accent}
-\ifthenelse{\boolean{isEnglish}}{Languages}{Langages}
+\ifthenelse{\boolean{isEnglish}}{Languages}{Langages de programmation}
 }
 
-C++, JavaScript, TypeScript, Python, Java, PHP
+C++, JavaScript, TypeScript, Python, Java, SQL, HTML5, CSS3
 
 \vspace{1em}
 
@@ -173,17 +170,17 @@ C++, JavaScript, TypeScript, Python, Java, PHP
 
 \textbf{\color{accent}Frameworks}
 
-React
-
 React Native
+
+Expo
 
 Angular
 
-Next.js
+React / Next.js
 
-Spring Boot
+Redux / RxJS
 
-Tailwind CSS
+Tailwind CSS / SCSS
 
 \end{minipage}
 \hfill
@@ -191,13 +188,13 @@ Tailwind CSS
 
 \textbf{\color{accent}Backend}
 
-Node.js
+Node.js / Express
+
+Spring Boot
 
 REST APIs
 
 JWT / OAuth
-
-Expo
 
 \end{minipage}
 
@@ -206,7 +203,7 @@ Expo
 % Second row
 \begin{minipage}[t]{0.48\linewidth}
 
-\textbf{\color{accent}Databases}
+\textbf{\color{accent}\ifthenelse{\boolean{isEnglish}}{Databases}{Bases de données}}
 
 PostgreSQL
 
@@ -226,9 +223,7 @@ Docker
 
 Git / GitHub Actions
 
-CI/CD
-
-AWS
+AWS / Vercel
 
 \end{minipage}
 \section*{\ifthenelse{\boolean{isEnglish}}{Education}{Éducation}}
@@ -236,7 +231,7 @@ AWS
 \textbf{
 \ifthenelse{\boolean{isEnglish}}
 {Master in Information Technologies}
-{Master Technologies de l'Information}
+{Master en Technologies de l'Information}
 }
 
 \ifthenelse{\boolean{isEnglish}}
@@ -253,7 +248,7 @@ VINCI School of Computer Engineering
 \textbf{
 \ifthenelse{\boolean{isEnglish}}
 {Bachelor in Information Technologies}
-{Licence Technologies de l'Information}
+{Licence en Technologies de l'Information}
 }
 
 \ifthenelse{\boolean{isEnglish}}
@@ -285,11 +280,11 @@ Experimental Sciences
 
 \section*{\ifthenelse{\boolean{isEnglish}}{Languages}{Langues}}
 
-English \hfill \ifthenelse{\boolean{isEnglish}}{Upper-Intermediate}{Avancé}
+\ifthenelse{\boolean{isEnglish}}{English}{Anglais} \hfill B2 (TOEFL)
 
-Arabic \hfill \ifthenelse{\boolean{isEnglish}}{Fluent}{Langue Maternelle}
+\ifthenelse{\boolean{isEnglish}}{Arabic}{Arabe} \hfill \ifthenelse{\boolean{isEnglish}}{Native}{Langue maternelle}
 
-French \hfill \ifthenelse{\boolean{isEnglish}}{Intermediate}{Intermédiaire}
+\ifthenelse{\boolean{isEnglish}}{French}{Français} \hfill \ifthenelse{\boolean{isEnglish}}{Intermediate (B1)}{Intermédiaire (B1)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -299,9 +294,9 @@ French \hfill \ifthenelse{\boolean{isEnglish}}{Intermediate}{Intermédiaire}
 {Certifications}
 }
 
-AWS Cloud Practitioner Essentials
+AWS Cloud Practitioner Essentials \textit{\ifthenelse{\boolean{isEnglish}}{(Coursework)}{(Formation)}}
 
-TOEFL English (B2)
+TOEFL English -- B2
 
 \switchcolumn
 
@@ -327,13 +322,11 @@ TOEFL English (B2)
 
 \begin{itemize}
 \item \ifthenelse{\boolean{isEnglish}}
-{Built cross-platform mobile applications using React Native and Node.js. } {Création d'applications mobiles multiplateformes avec React Native et Node.js.}
+{Improved app load times by 30\% with reusable React Native components. } {Amélioration des temps de chargement de 30\% grâce à des composants React Native réutilisables.}
 \item \ifthenelse{\boolean{isEnglish}}
-{Designed reusable UI components and integrated REST APIs. } {Conception de composants UI réutilisables et intégration d'API REST.}
+{Integrated Node.js REST APIs, PostgreSQL and third-party services. } {Intégration d'API REST Node.js, PostgreSQL et de services tiers.}
 \item \ifthenelse{\boolean{isEnglish}}
-{Connected backend services and databases. } {Connexion des services backend et des bases de données.}
-\item \ifthenelse{\boolean{isEnglish}}
-{Delivered responsive user experiences across Android and iOS. } {Livraison d'expériences utilisateur réactives sur Android et iOS.}
+{Shipped responsive iOS/Android builds; participated in Agile sprints and code reviews. } {Livraison de builds iOS/Android responsives ; participation aux sprints Agile et aux revues de code.}
 \end{itemize}
 
 
@@ -354,15 +347,13 @@ TOEFL English (B2)
 
 \begin{itemize}
 \item \ifthenelse{\boolean{isEnglish}}
-{Improved application performance by 20\%. }{Amélioration des performances de l'application de 20\%.}
+{Boosted performance by 20\% with RxJS optimizations and lazy-loading. }{Amélioration des performances de 20\% grâce aux optimisations RxJS et au lazy-loading.}
 \item \ifthenelse{\boolean{isEnglish}}
-{Built responsive Angular interfaces using TypeScript and SCSS. }{Création d'interfaces Angular réactives avec TypeScript et SCSS.}
+{Built responsive Angular interfaces with TypeScript, SCSS and clean state management. }{Création d'interfaces Angular responsives avec TypeScript, SCSS et gestion d'état propre.}
 \item \ifthenelse{\boolean{isEnglish}}
 {Developed and integrated Java REST APIs. }{Développement et intégration d'API REST Java.}
 \item \ifthenelse{\boolean{isEnglish}}
-{Worked in Agile/Scrum while maintaining clean, testable code. }{Travail en Agile/Scrum tout en maintenant un code propre et testable.}
-\item \ifthenelse{\boolean{isEnglish}}
-{Participated in code reviews and CI/CD workflows. }{Participation aux revues de code et aux flux de travail CI/CD.}
+{Delivered features in Agile/Scrum with code reviews and CI/CD. }{Livraison de fonctionnalités en Agile/Scrum avec revues de code et CI/CD.}
 \end{itemize}
 
 
@@ -384,11 +375,11 @@ TOEFL English (B2)
 
 \begin{itemize}
 \item \ifthenelse{\boolean{isEnglish}}
-{Developed custom web applications for international clients. }{Développement d'applications web personnalisées pour des clients internationaux.}
+{Delivered Angular, React and C++ apps for international clients from requirements to release. }{Livraison d'applications Angular, React et C++ pour des clients internationaux, du cadrage à la mise en production.}
 \item \ifthenelse{\boolean{isEnglish}}
 {Gathered requirements and proposed tailored technical solutions. }{Collecte des exigences et proposition de solutions techniques adaptées.}
 \item \ifthenelse{\boolean{isEnglish}}
-{Maintained a consistent 5$\star$ client satisfaction rating. }{Maintien d'une évaluation de satisfaction client constante de 5$\star$.}
+{Maintained 5$\star$ rating with repeat clients on Fiverr. }{Maintien d'une note de 5$\star$ avec des clients récurrents sur Fiverr.}
 \end{itemize}
 
 
@@ -401,67 +392,69 @@ TOEFL English (B2)
 {ArchEclipse}
 }
 \hfill
-\textit{GTK4 • TypeScript • Bash}
+\textit{QML • Python • Hyprland}
 
 \smallskip
 
 \ifthenelse{\boolean{isEnglish}}
 {
 
-Linux desktop customization suite with
+Production-grade Arch Linux / Hyprland desktop environment with
 \archEclipseStars+$\star$ GitHub stars,
-featuring widgets, utilities and modern Hyprland integration.
+featuring 120+ Quickshell widgets, dynamic theming engine in C
+and one-command Python installer.
 
 }
-{Suite de personnalisation de bureau Linux avec
-\archEclipseStars+$\star$ étoiles GitHub, comprenant des widgets, des utilitaires et une intégration moderne avec Hyprland.}    
+{Environnement de bureau Arch Linux / Hyprland de niveau production avec
+\archEclipseStars+$\star$ étoiles GitHub, comprenant plus de 120 widgets Quickshell, un moteur de thèmes dynamiques en C et un installateur Python en une commande.}    
 
 \vspace{0.9em}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \textbf{
-Crypto Viewer
+\href{https://github.com/AymanLyesri/CryptoSpy}
+{CryptoSpy}
 }
 \hfill
-\textit{Next.js • AI}
+\textit{Next.js • TypeScript • Chart.js}
 
 \smallskip
 
 \ifthenelse{\boolean{isEnglish}}
 {
-Real-time cryptocurrency dashboard integrating
-Pollinations.AI for market insights.
+Real-time crypto dashboard with prices, charts and clean UI. Live: \href{https://crypto-spy-io.vercel.app}{crypto-spy-io.vercel.app}.
 }
 {
-Tableau de bord en temps réel pour les cryptomonnaies intégrant Pollinations.AI pour des analyses de marché.
+Tableau de bord crypto en temps réel avec prix, graphiques et interface soignée. Démo : \href{https://crypto-spy-io.vercel.app}{crypto-spy-io.vercel.app}.
 }
 \vspace{0.9em}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \textbf{
-Manga Reader
+\href{https://github.com/AymanLyesri/MangaUniversal}
+{MangaUniversal}
 }
 \hfill
-\textit{Angular • Spring Boot}
+\textit{Angular • Spring Boot • MangaDex API}
 
 \smallskip
 
 \ifthenelse{\boolean{isEnglish}}
 {
-Full-stack web application with REST APIs,
-authentication and responsive UI.
+Cross-platform manga reader integrating MangaDex API with responsive Tailwind UI and Java backend. Live: \href{https://mangauniversal.vercel.app}{mangauniversal.vercel.app}.
 }
 {
-Application web full-stack avec API REST, authentification et interface utilisateur réactive.
+Lecteur manga multiplateforme intégrant l'API MangaDex avec interface Tailwind réactive et backend Java. Démo : \href{https://mangauniversal.vercel.app}{mangauniversal.vercel.app}.
 }
 \vspace{0.9em}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \textbf{
-Terminal Bot
+\href{https://github.com/AymanLyesri/linux-chat-bot}
+{Linux Chat Bot}
 }
 \hfill
 \textit{Python • OpenAI}
@@ -470,12 +463,10 @@ Terminal Bot
 
 \ifthenelse{\boolean{isEnglish}}
 {
-Terminal-based AI assistant providing automation,
-productivity utilities and conversational workflows.
-
+Terminal-based AI assistant for Linux with automation and productivity utilities.
 }
 {
-Assistant IA basé sur le terminal offrant des fonctionnalités d'automatisation, des utilitaires de productivité et des flux de travail conversationnels.
+Assistant IA dans le terminal Linux avec automatisation et utilitaires de productivité.
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -483,7 +474,7 @@ Assistant IA basé sur le terminal offrant des fonctionnalités d'automatisation
 
 {\footnotesize
 \href{https://github.com/AymanLyesri/CurriculumVitae}
-{\faGithub\; CV Github Source (LaTeX)}
+{\faGithub\; \ifthenelse{\boolean{isEnglish}}{CV Github Source (LaTeX)}{CV sur GitHub (LaTeX)}}
 }
 
 \end{paracol}
