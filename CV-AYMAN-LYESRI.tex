@@ -15,6 +15,16 @@
 \usepackage{paracol}
 \usepackage{lmodern}
 \usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+% Circular profile photo
+\newcommand{\profilephoto}{%
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+        \clip (0,0) circle (1.05cm);
+        \node at (0,0) {\includegraphics[width=2.1cm]{PFP.png}};
+    \end{tikzpicture}%
+}
 
 % LOAD BABEL WITH BOTH LANGUAGES HERE
 % The last language in the list (french) becomes the default fallback
@@ -84,11 +94,14 @@
 
 \begin{center}
 
+\begin{tabular}{c@{\hspace{1em}}l}
+\raisebox{0.2cm}{\profilephoto} &
+\begin{tabular}[c]{@{}l@{}}
 {\Huge\bfseries Ayman Lyesri}
-
-\vspace{0.3em}
-
+\\[0.25em]
 {\large\color{textgray}\ifthenelse{\boolean{isEnglish}}{React Native \& Full-Stack Engineer}{Développeur React Native \& Full-Stack}}
+\end{tabular}
+\end{tabular}
 
 \vspace{1em}
 
@@ -232,7 +245,7 @@ AWS / Vercel
 \ifthenelse{\boolean{isEnglish}}
 {Master in Information Technologies}
 {Master en Technologies de l'Information}
-}
+}\hfill 2023--2025
 
 \ifthenelse{\boolean{isEnglish}}
 {
@@ -240,8 +253,6 @@ VINCI School of Computer Engineering
 }
 {VINCI École d'Ingénierie Informatique
 }
-
-2023--2025
 
 \vspace{1em}
 
@@ -249,7 +260,7 @@ VINCI School of Computer Engineering
 \ifthenelse{\boolean{isEnglish}}
 {Bachelor in Information Technologies}
 {Licence en Technologies de l'Information}
-}
+}\hfill 2020--2023
 
 \ifthenelse{\boolean{isEnglish}}
 {
@@ -257,7 +268,6 @@ VINCI School of Computer Engineering
 }
 {VINCI École d'Ingénierie Informatique
 }
-2020--2023
 
 \vspace{1em}
 
@@ -265,7 +275,7 @@ VINCI School of Computer Engineering
 \ifthenelse{\boolean{isEnglish}}
 {Scientific Baccalaureate}
 {Baccalauréat Scientifique}
-}
+}\hfill 2020
 
 % Experimental Sciences
 \ifthenelse{\boolean{isEnglish}}
@@ -273,8 +283,6 @@ VINCI School of Computer Engineering
 Experimental Sciences
 }
 {Sciences Expérimentales}
-
-2020
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -296,7 +304,7 @@ Experimental Sciences
 
 AWS Cloud Practitioner Essentials \textit{\ifthenelse{\boolean{isEnglish}}{(Coursework)}{(Formation)}}
 
-TOEFL English -- B2
+TOEFL \ifthenelse{\boolean{isEnglish}}{English}{Anglais} -- B2
 
 \switchcolumn
 
