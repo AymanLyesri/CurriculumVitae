@@ -1,0 +1,391 @@
+\documentclass[10pt,a4paper]{article}
+
+% ------------------------------------------------
+% Packages
+% ------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.2cm]{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{ifthen}
+\usepackage{fontawesome5}
+\usepackage{microtype}
+\usepackage{paracol}
+\usepackage{lmodern} % math and monospace stay Latin Modern
+\usepackage[scaled=1.0]{helvet} % Helvetica = Arial's metric-identical twin
+\renewcommand{\familydefault}{\sfdefault} % body text becomes sans (Arial look)
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+% Circular profile photo
+\newcommand{\profilephoto}{%
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+        \clip (0,0) circle (1.05cm);
+        \node at (0,0) {\includegraphics[width=2.1cm]{PFP.png}};
+    \end{tikzpicture}%
+}
+
+% LOAD BABEL WITH BOTH LANGUAGES HERE
+% The last language in the list (french) becomes the default fallback
+\usepackage[english, french]{babel}
+\frenchbsetup{StandardLayout=true} % Prevents babel from breaking enumitem
+
+% ------------------------------------------------
+% Language Toggle
+% ------------------------------------------------
+\newboolean{isEnglish}
+\setboolean{isEnglish}{true} % Changing to false triggers French hyphenation patterns
+
+% babel resets the locale at \begin{document}, so the toggle must run there too.
+% Selecting it only in the preamble leaves the English PDF with French spacing.
+\AtBeginDocument{%
+  \ifthenelse{\boolean{isEnglish}}
+  {\selectlanguage{english}}
+  {\selectlanguage{french}}%
+}
+
+
+% ------------------------------------------------
+% Colors
+% ------------------------------------------------
+\definecolor{accent}{HTML}{1E3A8A}
+\definecolor{textgray}{HTML}{555555}
+\definecolor{lightgray}{HTML}{DADADA}
+% Filled star glyph for star counts. accent!65 is the accent lightened 35%
+% with white: same family as the palette, but a soft mark instead of a dark
+% block next to the text. \faStar is a control word, so a plain space after
+% it disappears; call it as \ghstar{} to keep the space.
+\newcommand{\ghstar}{\textcolor{accent!65}{\faStar}}
+
+% ------------------------------------------------
+% Hyperlinks
+% ------------------------------------------------
+\hypersetup{
+    colorlinks=true,
+    urlcolor=accent,
+    linkcolor=accent
+}
+
+% ------------------------------------------------
+% Sections
+% ------------------------------------------------
+\titleformat{\section}
+{\Large\bfseries\color{accent}}
+{}{0em}{}
+[\vspace{0em}\color{lightgray}\titlerule]
+
+\titlespacing*{\section}
+{0pt}{0.8em}{0.4em}
+
+\setlength{\parindent}{0pt}
+\setlength{\columnsep}{0.8cm}   % Nice default
+\setlist[itemize]{
+    leftmargin=*,
+    itemsep=1pt,
+    topsep=1pt,
+    parsep=0pt
+}
+
+\pagestyle{empty}
+
+% Let the narrow two-column layout break long unbreakable lines instead of
+% pushing text into the margin (Arial/Nimbus runs wider than Latin Modern).
+\setlength{\emergencystretch}{2em}
+
+% ------------------------------------------------
+% GitHub stars
+% ------------------------------------------------
+\providecommand{\archEclipseStars}{713}
+\InputIfFileExists{stars.tex}{}{}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+
+\begin{tabular}{c@{\hspace{1em}}l}
+\raisebox{0.2cm}{\profilephoto} &
+\begin{tabular}[c]{@{}l@{}}
+{\Huge\bfseries Ayman Lyesri}
+\\[0.25em]
+{\large\color{textgray}\ifthenelse{\boolean{isEnglish}}{Customer Support \& Call Center Agent}{Agent Service Client \& Centre d'Appels}}
+\end{tabular}
+\end{tabular}
+
+\vspace{1em}
+
+\small
+
+\faPhone\;
++212 6 88 60 11 62
+\quad\textbar\quad
+\faEnvelope\;
+\href{mailto:ayman.lyesri.99@gmail.com}{ayman.lyesri.99@gmail.com}
+\quad\textbar\quad
+\faLinkedin\;
+\href{https://linkedin.com/in/aymanlyesri}{LinkedIn}
+\quad\textbar\quad
+\faMapMarker*\
+Rabat, \ifthenelse{\boolean{isEnglish}}{Morocco}{Maroc}
+
+\end{center}
+
+\vspace{1em}
+
+\begin{paracol}{2}
+\columnratio{0.36,0.64}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LEFT COLUMN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{\ifthenelse{\boolean{isEnglish}}{Profile}{Profil}}
+
+\ifthenelse{\boolean{isEnglish}}
+{
+Multilingual support candidate: native Arabic, English B2 (TOEFL) and French B2. Three years of daily contact with French and Moroccan clients by phone, chat and email, plus a software background. Clear speech, calm handling of complaints, accurate data entry and quick learning of new systems. Available for shift work, evenings and weekends.
+}
+{
+Candidat au support multilingue : arabe natif, anglais B2 (TOEFL) et français B2. Trois ans de contact quotidien avec des clients français et marocains par téléphone, chat et e-mail, avec un parcours en informatique. Expression claire, gestion calme des réclamations, saisie rigoureuse et apprentissage rapide des outils. Disponible en horaires décalés, le soir et le week-end.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{\ifthenelse{\boolean{isEnglish}}{Languages}{Langues}}
+
+\textbf{\ifthenelse{\boolean{isEnglish}}{Arabic}{Arabe}} \hfill \ifthenelse{\boolean{isEnglish}}{Native}{Langue maternelle}
+
+\textbf{\ifthenelse{\boolean{isEnglish}}{English}{Anglais}} \hfill B2 (TOEFL)
+
+\textbf{\ifthenelse{\boolean{isEnglish}}{French}{Français}} \hfill B2
+
+\vspace{0.6em}
+
+\ifthenelse{\boolean{isEnglish}}
+{Spoken support in three languages; written support in Arabic and English.}
+{Support téléphonique en trois langues ; support écrit en arabe et en anglais.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{\ifthenelse{\boolean{isEnglish}}{Customer Service}{Service Client}}
+
+\ifthenelse{\boolean{isEnglish}}
+{
+Active listening \\
+Clear spoken and written expression \\
+Complaint handling \\
+De-escalation and patience \\
+Follow-up until resolution \\
+Attention to detail \\
+Multi-tasking under volume \\
+Time management \\
+Confidentiality \\
+Team collaboration
+}
+{
+Écoute active \\
+Expression claire, orale et écrite \\
+Gestion des réclamations \\
+Apaisement et patience \\
+Suivi jusqu'à résolution \\
+Rigueur et attention au détail \\
+Gestion de plusieurs tâches \\
+Gestion du temps \\
+Confidentialité \\
+Travail en équipe
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{\ifthenelse{\boolean{isEnglish}}{Tools}{Outils}}
+
+\ifthenelse{\boolean{isEnglish}}{CRM \& ticketing}{CRM \& ticketing}: Zendesk, Freshdesk, HubSpot
+
+Google Workspace, Excel, Sheets
+
+Slack, Teams, Zoom
+
+\ifthenelse{\boolean{isEnglish}}{Basic SQL and log reading}{SQL de base et lecture de logs}
+
+\ifthenelse{\boolean{isEnglish}}{Fast typing, French and English keyboards}{Frappe rapide, claviers FR et EN}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{\ifthenelse{\boolean{isEnglish}}{Education}{Éducation}}
+
+\textbf{
+\ifthenelse{\boolean{isEnglish}}
+{Master in Information Technologies}
+{Master en Technologies de l'Information}
+}\hfill 2023--2025
+
+\ifthenelse{\boolean{isEnglish}}
+{
+VINCI School of Computer Engineering
+}
+{VINCI École d'Ingénierie Informatique
+}
+
+\vspace{0.8em}
+
+\textbf{
+\ifthenelse{\boolean{isEnglish}}
+{Bachelor in Information Technologies}
+{Licence en Technologies de l'Information}
+}\hfill 2020--2023
+
+\ifthenelse{\boolean{isEnglish}}
+{
+VINCI School of Computer Engineering
+}
+{VINCI École d'Ingénierie Informatique
+}
+
+\vspace{0.8em}
+
+\textbf{
+\ifthenelse{\boolean{isEnglish}}
+{Scientific Baccalaureate}
+{Baccalauréat Scientifique}
+}\hfill 2020
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{\ifthenelse{\boolean{isEnglish}}{Certifications}{Certifications}}
+
+TOEFL \ifthenelse{\boolean{isEnglish}}{English}{Anglais} -- B2
+
+AWS Cloud Practitioner Essentials \textit{\ifthenelse{\boolean{isEnglish}}{(Coursework)}{(Formation)}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{\ifthenelse{\boolean{isEnglish}}{Availability}{Disponibilité}}
+
+\ifthenelse{\boolean{isEnglish}}
+{On-site, hybrid or remote in Rabat. Evening, weekend and holiday shifts. Immediate start.}{Sur site, hybride ou à distance à Rabat. Horaires du soir, week-ends et jours fériés. Disponibilité immédiate.}
+
+\switchcolumn
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RIGHT COLUMN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{\ifthenelse{\boolean{isEnglish}}{Professional Experience}{Expérience Professionnelle}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{
+\ifthenelse{\boolean{isEnglish}}
+{Client Support \& React Native Developer}
+{Développeur Support Client \& React Native}
+}
+
+\textit{VNB-IT • France}
+\hfill
+2025
+
+\begin{itemize}
+\item \ifthenelse{\boolean{isEnglish}}
+{Answered client requests and bug reports by email and video call; logged each one as a ticket and closed it with a fix.}{Réponse aux demandes et anomalies signalées par les clients par e-mail et visioconférence ; ouverture d'un ticket et clôture par une correction.}
+\item \ifthenelse{\boolean{isEnglish}}
+{Explained releases to non-technical users in clear English, by phone and in writing.}{Explication des livraisons aux utilisateurs non techniques, en anglais clair, au téléphone et par écrit.}
+\item \ifthenelse{\boolean{isEnglish}}
+{Worked remotely with a French team through daily stand-ups, sprint reviews and written handovers.}{Travail à distance avec une équipe française : points quotidiens, revues de sprint et transmissions écrites.}
+\item \ifthenelse{\boolean{isEnglish}}
+{Cut app load time by 30\% with reusable components, which reduced waiting complaints.}{Réduction de 30\% du temps de chargement de l'application, ce qui a diminué les réclamations d'attente.}
+\end{itemize}
+
+\vspace{0.7em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{
+\ifthenelse{\boolean{isEnglish}}
+{Angular Developer, Business Contact}
+{Développeur Angular, Contact Métier}
+}
+
+\textit{E-AMBITION • \ifthenelse{\boolean{isEnglish}}{Morocco}{Maroc}}
+\hfill
+2023
+
+\begin{itemize}
+\item \ifthenelse{\boolean{isEnglish}}
+{Collected needs directly from business users, confirmed scope in writing and followed up after delivery.}{Recueil des besoins auprès des utilisateurs métier, confirmation du périmètre par écrit et suivi après livraison.}
+\item \ifthenelse{\boolean{isEnglish}}
+{Handled reported incidents: reproduced the problem, kept the user informed and closed the case.}{Traitement des incidents signalés : reproduction du problème, information de l'utilisateur et clôture du dossier.}
+\item \ifthenelse{\boolean{isEnglish}}
+{Delivered features in Agile/Scrum with code reviews and CI/CD.}{Livraison de fonctionnalités en Agile/Scrum avec revues de code et CI/CD.}
+\end{itemize}
+
+\vspace{0.7em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{
+\ifthenelse{\boolean{isEnglish}}
+{Freelance Client Support \& Software Developer}
+{Support Client Freelance \& Développeur}
+}
+
+\textit{Fiverr \& \ifthenelse{\boolean{isEnglish}}{Independent Clients}{Clients Indépendants}}
+\hfill
+2021--2024
+
+\begin{itemize}
+\item \ifthenelse{\boolean{isEnglish}}
+{Served international clients end to end: first reply, quote, delivery, revisions and follow-up.}{Prise en charge complète de clients internationaux : premier échange, devis, livraison, révisions et suivi.}
+\item \ifthenelse{\boolean{isEnglish}}
+{Held a 5\ghstar{} rating with repeat clients through clear replies, fast turnaround and honest expectations.}{Maintien d'une note de 5\ghstar{} avec des clients récurrents : réponses claires, délais courts et attentes honnêtes.}
+\item \ifthenelse{\boolean{isEnglish}}
+{Communicated only in written English for four years; negotiated scope, delays and disagreements in writing.}{Communication exclusivement en anglais écrit pendant quatre ans ; négociation du périmètre, des délais et des désaccords par écrit.}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{\ifthenelse{\boolean{isEnglish}}{Open-Source User Support}{Support Utilisateurs Open-Source}}
+
+\textbf{\href{https://github.com/AymanLyesri/ArchEclipse}{ArchEclipse}}
+\hfill
+\textit{\archEclipseStars+\ghstar{} GitHub}
+
+\smallskip
+
+\ifthenelse{\boolean{isEnglish}}
+{
+Maintained a project used by strangers: answered user issues, reproduced bugs, wrote install guides and replied to feature requests in English.
+}
+{
+Maintien d'un projet utilisé par des inconnus : réponse aux tickets, reproduction des bugs, guides d'installation et réponse aux demandes de fonctionnalités en anglais.
+}
+
+\vspace{0.9em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{\ifthenelse{\boolean{isEnglish}}{Why This Profile}{Pourquoi ce Profil}}
+
+\ifthenelse{\boolean{isEnglish}}
+{
+A support agent who can also debug the product. Fewer escalations, faster answers on technical lines, and reports that a supervisor can read.
+}
+{
+Un agent de support qui sait aussi diagnostiquer le produit : moins d'escalades, des réponses plus rapides sur les lignes techniques et des rapports lisibles par un superviseur.
+}
+
+\vspace{1em}
+
+{\footnotesize
+\href{https://github.com/AymanLyesri/CurriculumVitae}
+{\faGithub\; \ifthenelse{\boolean{isEnglish}}{CV Github Source (LaTeX)}{CV sur GitHub (LaTeX)}}
+}
+
+\end{paracol}
+
+\end{document}

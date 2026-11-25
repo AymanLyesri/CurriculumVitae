@@ -23,7 +23,8 @@ Every push to the repository generates fresh PDF versions of the CV (English and
 ├── .github/
 │   └── workflows/
 │       └── build.yml
-├── CV-AYMAN-LYESRI.tex
+├── CV-AYMAN-LYESRI.tex              # software engineering (EN/FR)
+├── CV-AYMAN-LYESRI-CALL-CENTER.tex  # call center / customer support (EN/FR)
 ├── stars.tex
 └── README.md
 ```
@@ -37,9 +38,9 @@ The workflow automatically:
 1. Checks out the repository.
 2. Fetches the latest GitHub star count from the ArchEclipse repository.
 3. Generates `stars.tex`.
-4. Builds the English and French PDFs using LaTeX.
+4. Builds the English and French PDFs of both CV versions using LaTeX.
 5. Creates or updates a GitHub Release.
-6. Uploads both PDFs as release assets.
+6. Uploads the four PDFs as release assets.
 
 The workflow runs on:
 
@@ -95,8 +96,10 @@ If the workflow hasn't generated it yet, the document falls back to:
 
 Each workflow execution publishes:
 
-- 🇬🇧 `CV-AYMAN-LYESRI-EN.pdf`
-- 🇫🇷 `CV-AYMAN-LYESRI-FR.pdf`
+- 🇬🇧 `CV-Ayman-Lyesri-English.pdf`
+- 🇫🇷 `CV-Ayman-Lyesri-French.pdf`
+- 🇬🇧 `CV-Ayman-Lyesri-CallCenter-English.pdf`
+- 🇫🇷 `CV-Ayman-Lyesri-CallCenter-French.pdf`
 
 making the latest version always available from the repository's Releases page.
 

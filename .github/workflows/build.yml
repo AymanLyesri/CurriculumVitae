@@ -46,6 +46,26 @@ jobs:
       - name: Save French PDF
         run: mv CV-AYMAN-LYESRI.pdf CV-Ayman-Lyesri-French.pdf
 
+      - name: Compile Call Center English Version
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: CV-AYMAN-LYESRI-CALL-CENTER.tex
+
+      - name: Save Call Center English PDF
+        run: mv CV-AYMAN-LYESRI-CALL-CENTER.pdf CV-Ayman-Lyesri-CallCenter-English.pdf
+
+      - name: Switch Call Center Toggle to French
+        run: |
+          sed -i 's/\\setboolean{isEnglish}{true}/\\setboolean{isEnglish}{false}/' CV-AYMAN-LYESRI-CALL-CENTER.tex
+
+      - name: Compile Call Center French Version
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: CV-AYMAN-LYESRI-CALL-CENTER.tex
+
+      - name: Save Call Center French PDF
+        run: mv CV-AYMAN-LYESRI-CALL-CENTER.pdf CV-Ayman-Lyesri-CallCenter-French.pdf
+
       - name: Delete existing release (if any)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -65,5 +85,7 @@ jobs:
           gh release create latest \
             CV-Ayman-Lyesri-English.pdf \
             CV-Ayman-Lyesri-French.pdf \
+            CV-Ayman-Lyesri-CallCenter-English.pdf \
+            CV-Ayman-Lyesri-CallCenter-French.pdf \
             --title "Latest CV" \
             --notes "Automatically generated from the latest commit."

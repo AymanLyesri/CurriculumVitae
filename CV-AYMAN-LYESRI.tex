@@ -13,7 +13,9 @@
 \usepackage{fontawesome5}
 \usepackage{microtype}
 \usepackage{paracol}
-\usepackage{lmodern}
+\usepackage{lmodern} % math and monospace stay Latin Modern
+\usepackage[scaled=1.0]{helvet} % Helvetica = Arial's metric-identical twin
+\renewcommand{\familydefault}{\sfdefault} % body text becomes sans (Arial look)
 \usepackage{enumitem}
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -28,7 +30,7 @@
 
 % LOAD BABEL WITH BOTH LANGUAGES HERE
 % The last language in the list (french) becomes the default fallback
-\usepackage[english, french]{babel} 
+\usepackage[english, french]{babel}
 \frenchbsetup{StandardLayout=true} % Prevents babel from breaking enumitem
 
 % ------------------------------------------------
@@ -37,9 +39,13 @@
 \newboolean{isEnglish}
 \setboolean{isEnglish}{true} % Changing to false triggers French hyphenation patterns
 
-\ifthenelse{\boolean{isEnglish}}
-{\selectlanguage{english}}
-{\selectlanguage{french}}
+% babel resets the locale at \begin{document}, so the toggle must run there too.
+% Selecting it only in the preamble leaves the English PDF with French spacing.
+\AtBeginDocument{%
+  \ifthenelse{\boolean{isEnglish}}
+  {\selectlanguage{english}}
+  {\selectlanguage{french}}%
+}
 
 
 % ------------------------------------------------
@@ -48,6 +54,11 @@
 \definecolor{accent}{HTML}{1E3A8A}
 \definecolor{textgray}{HTML}{555555}
 \definecolor{lightgray}{HTML}{DADADA}
+% Filled star glyph for star counts. accent!65 is the accent lightened 35%
+% with white: same family as the palette, but a soft mark instead of a dark
+% block next to the text. \faStar is a control word, so a plain space after
+% it disappears; call it as \ghstar{} to keep the space.
+\newcommand{\ghstar}{\textcolor{accent!65}{\faStar}}
 
 % ------------------------------------------------
 % Hyperlinks
@@ -80,10 +91,14 @@
 
 \pagestyle{empty}
 
+% Let the narrow two-column layout break long unbreakable lines instead of
+% pushing text into the margin (Arial/Nimbus runs wider than Latin Modern).
+\setlength{\emergencystretch}{2em}
+
 % ------------------------------------------------
 % GitHub stars
 % ------------------------------------------------
-\providecommand{\archEclipseStars}{664}
+\providecommand{\archEclipseStars}{713}
 \InputIfFileExists{stars.tex}{}{}
 
 \begin{document}
@@ -140,10 +155,10 @@ Rabat, \ifthenelse{\boolean{isEnglish}}{Morocco}{Maroc}
 
 \ifthenelse{\boolean{isEnglish}}
 {
-React Native \& Full-Stack Engineer with 3+ years building cross-platform mobile apps and web platforms for clients in France and Morocco. Creator of ArchEclipse (\archEclipseStars+$\star$ on GitHub). Strong with TypeScript, React Native, Angular, Node.js and REST APIs, delivering in Agile teams.
+React Native \& Full-Stack Engineer with 3+ years building cross-platform mobile apps and web platforms for clients in France and Morocco. Creator of ArchEclipse (\archEclipseStars+\ghstar{} on GitHub). Strong with TypeScript, React Native, Angular, Node.js and REST APIs, delivering in Agile teams.
 }
 {
-Développeur React Native \& Full-Stack avec plus de 3 ans d'expérience dans la création d'applications mobiles multiplateformes et de plateformes web pour des clients en France et au Maroc. Créateur d'ArchEclipse (\archEclipseStars+$\star$ sur GitHub). Solide maîtrise de TypeScript, React Native, Angular, Node.js et des API REST, en équipe Agile.
+Développeur React Native \& Full-Stack avec plus de 3 ans d'expérience dans la création d'applications mobiles multiplateformes et de plateformes web pour des clients en France et au Maroc. Créateur d'ArchEclipse (\archEclipseStars+\ghstar{} sur GitHub). Solide maîtrise de TypeScript, React Native, Angular, Node.js et des API REST, en équipe Agile.
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -152,15 +167,15 @@ Développeur React Native \& Full-Stack avec plus de 3 ans d'expérience dans la
 
 
 \begin{itemize}
-\item 
+\item
 \ifthenelse{\boolean{isEnglish}}
-{ArchEclipse creator (\archEclipseStars+$\star$ GitHub, 30+ open-source repos)}{Créateur d'ArchEclipse (\archEclipseStars+$\star$ GitHub, 30+ dépôts open-source)}
-\item 
+{ArchEclipse creator (\archEclipseStars+\ghstar{} GitHub, 30+ open-source repos)}{Créateur d'ArchEclipse (\archEclipseStars+\ghstar{} GitHub, 30+ dépôts open-source)}
+\item
 \ifthenelse{\boolean{isEnglish}}
 {30\% faster mobile load (VNB-IT), 20\% faster web (E-AMBITION)}{Chargement mobile 30\% plus rapide (VNB-IT), web 20\% plus rapide (E-AMBITION)}
-\item 
+\item
 \ifthenelse{\boolean{isEnglish}}
-{5$\star$ freelance rating, repeat clients}{Note freelance de 5$\star$, clients récurrents}
+{5\ghstar{} freelance rating, repeat clients}{Note freelance de 5\faStar, clients récurrents}
 \end{itemize}
 
 
@@ -174,7 +189,7 @@ Développeur React Native \& Full-Stack avec plus de 3 ans d'expérience dans la
 \ifthenelse{\boolean{isEnglish}}{Languages}{Langages de programmation}
 }
 
-C++, JavaScript, TypeScript, Python, Java, SQL, HTML5, CSS3
+Rust, C++, JavaScript, TypeScript, Python, Java, SQL, HTML5, CSS3
 
 \vspace{1em}
 
@@ -219,6 +234,8 @@ JWT / OAuth
 \textbf{\color{accent}\ifthenelse{\boolean{isEnglish}}{Databases}{Bases de données}}
 
 PostgreSQL
+
+Supabase
 
 MongoDB
 
@@ -292,7 +309,7 @@ Experimental Sciences
 
 \ifthenelse{\boolean{isEnglish}}{Arabic}{Arabe} \hfill \ifthenelse{\boolean{isEnglish}}{Native}{Langue maternelle}
 
-\ifthenelse{\boolean{isEnglish}}{French}{Français} \hfill \ifthenelse{\boolean{isEnglish}}{Intermediate (B1)}{Intermédiaire (B1)}
+\ifthenelse{\boolean{isEnglish}}{French}{Français} \hfill B2
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -387,7 +404,7 @@ TOEFL \ifthenelse{\boolean{isEnglish}}{English}{Anglais} -- B2
 \item \ifthenelse{\boolean{isEnglish}}
 {Gathered requirements and proposed tailored technical solutions. }{Collecte des exigences et proposition de solutions techniques adaptées.}
 \item \ifthenelse{\boolean{isEnglish}}
-{Maintained 5$\star$ rating with repeat clients on Fiverr. }{Maintien d'une note de 5$\star$ avec des clients récurrents sur Fiverr.}
+{Maintained 5\ghstar{} rating with repeat clients on Fiverr. }{Maintien d'une note de 5\ghstar{} avec des clients récurrents sur Fiverr.}
 \end{itemize}
 
 
@@ -400,7 +417,7 @@ TOEFL \ifthenelse{\boolean{isEnglish}}{English}{Anglais} -- B2
 {ArchEclipse}
 }
 \hfill
-\textit{QML • Python • Hyprland}
+\textit{Rust • QML • Python • Hyprland}
 
 \smallskip
 
@@ -408,13 +425,13 @@ TOEFL \ifthenelse{\boolean{isEnglish}}{English}{Anglais} -- B2
 {
 
 Production-grade Arch Linux / Hyprland desktop environment with
-\archEclipseStars+$\star$ GitHub stars,
-featuring 120+ Quickshell widgets, dynamic theming engine in C
-and one-command Python installer.
+\archEclipseStars+\ghstar{} GitHub stars: 180 QML components including
+120+ Quickshell widgets, Rust system monitors compiled on demand,
+a global theming engine, a one-command Python installer, and Supabase
+edge functions that handle donations and payments.
 
 }
-{Environnement de bureau Arch Linux / Hyprland de niveau production avec
-\archEclipseStars+$\star$ étoiles GitHub, comprenant plus de 120 widgets Quickshell, un moteur de thèmes dynamiques en C et un installateur Python en une commande.}    
+{Environnement de bureau Arch Linux / Hyprland (\archEclipseStars+\ghstar{} étoiles GitHub) : 180 composants QML dont plus de 120 widgets Quickshell, moniteurs système en Rust compilés à la demande, moteur de thèmes global, installateur Python en une commande et fonctions Supabase pour les dons et les paiements.}
 
 \vspace{0.9em}
 
